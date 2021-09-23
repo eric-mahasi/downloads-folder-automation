@@ -11,14 +11,15 @@ import os.path
 import shutil
 from pathlib import Path
 
-downloads_path = Path("/Users/ericm/Downloads")
-programs_path = Path("/Users/ericm/Downloads/Programs")
-compressed_path = Path("/Users/ericm/Downloads/Compressed")
-documents_path = Path("/Users/ericm/Downloads/Documents")
-music_path = Path("/Users/ericm/Downloads/Music")
-video_path = Path("/Users/ericm/Downloads/Video")
-pictures_path = Path("/Users/ericm/Downloads/Pictures")
-other_path = Path("/Users/ericm/Downloads/Other")
+user = os.getenv('USERNAME')
+downloads_path = Path("/Users/{}/Downloads".format(user))
+programs_path = Path("/Users/{}/Downloads/Programs".format(user))
+compressed_path = Path("/Users/{}/Downloads/Compressed".format(user))
+documents_path = Path("/Users/{}/Downloads/Documents".format(user))
+music_path = Path("/Users/{}/Downloads/Music".format(user))
+video_path = Path("/Users/{}/Downloads/Video".format(user))
+pictures_path = Path("/Users/{}/Downloads/Pictures".format(user))
+other_path = Path("/Users/{}/Downloads/Other".format(user))
 
 program_types = ('.exe', '.pkg', '.dmg', '.msi')
 compressed_types = ('.zip', '.rar')
