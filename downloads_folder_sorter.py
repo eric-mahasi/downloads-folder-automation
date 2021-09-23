@@ -6,7 +6,7 @@ folder.
 This file contains the following functions:
 
     * move_file - checks if the destination folder exists, creates it if it doesn't, then moves a file into it
-    * sort folder - iterates through the files in the folder
+    * sort_folder - iterates through the files in the folder
 """
 
 import os.path
