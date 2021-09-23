@@ -1,6 +1,7 @@
 """Downloads folder sorter
 
-This script iterates through the files in my downloads folder and places each file in its appropriate folder.
+This script iterates through the files in a user's downloads folder on Windows and places each file in its appropriate
+folder.
 This file contains the following functions:
 
     * move_file - checks if the destination folder exists, creates it if it doesn't, then moves a file into it
