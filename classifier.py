@@ -4,6 +4,11 @@ from pathlib import Path
 
 downloads_path = Path("/Users/ericm/Downloads")
 programs_path = Path("/Users/ericm/Downloads/Programs")
+compressed_path = Path("/Users/ericm/Downloads/Compressed")
+documents_path = Path("/Users/ericm/Downloads/Documents")
+music_path = Path("/Users/ericm/Downloads/Music")
+video_path = Path("/Users/ericm/Downloads/Video")
+other_path = Path("/Users/ericm/Downloads/Other")
 file_type_variation_list = ['.exe', '.ini', '.zip', '.msi', '.iso', '.torrent']
 for file in downloads_path.iterdir():
     if file.is_file():
