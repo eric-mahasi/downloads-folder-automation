@@ -19,28 +19,33 @@ video_types = ('.mp4', '.mkv',)
 picture_types = ('.jpg', '.jpeg', '.png', '.svg', '.gif', '.tif', '.tiff')
 
 
-def move_file(dest_path):
+def move_file(file, dest_path):
     if os.path.isdir(dest_path):
         shutil.move(file, dest_path)
     else:
         os.mkdir(dest_path)
         shutil.move(file, dest_path)
-        
-        
-for file in downloads_path.iterdir():
-    if file.is_file():
-        extension = file.suffix
-        if extension in program_types:
-            move_file(programs_path)
-        elif extension in compressed_types:
-            move_file(compressed_path)
-        elif extension in doc_types:
-            move_file(documents_path)
-        elif extension in music_types:
-            move_file(music_path)
-        elif extension in video_types:
-            move_file(video_path)
-        elif extension in picture_types:
-            move_file(pictures_path)
-        else:
-            move_file(other_path)
+
+
+def sort_folder():
+    for file in downloads_path.iterdir():
+        if file.is_file():
+            extension = file.suffix
+            if extension in program_types:
+                move_file(file, programs_path)
+            elif extension in compressed_types:
+                move_file(file, compressed_path)
+            elif extension in doc_types:
+                move_file(file, documents_path)
+            elif extension in music_types:
+                move_file(file, music_path)
+            elif extension in video_types:
+                move_file(file, video_path)
+            elif extension in picture_types:
+                move_file(file, pictures_path)
+            else:
+                move_file(file, other_path)
+
+
+if __name__ == '__main__':
+    sort_folder()
