@@ -8,6 +8,7 @@ compressed_path = Path("/Users/ericm/Downloads/Compressed")
 documents_path = Path("/Users/ericm/Downloads/Documents")
 music_path = Path("/Users/ericm/Downloads/Music")
 video_path = Path("/Users/ericm/Downloads/Video")
+pictures_path = Path("/Users/ericm/Downloads/Pictures")
 other_path = Path("/Users/ericm/Downloads/Other")
 file_type_variation_list = ['.exe', '.ini', '.zip', '.msi', '.iso', '.torrent']
 for file in downloads_path.iterdir():
