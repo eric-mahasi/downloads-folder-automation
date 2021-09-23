@@ -11,6 +11,6 @@ for file in downloads_folder_path.iterdir():
         if extension not in file_type_variation_list:
             file_type_variation_list.append(extension)
         if extension == '.exe':
-            shutil.move(downloads_folder_path, programs_path)
+            shutil.move(file, programs_path)
 
 print(file_type_variation_list)
