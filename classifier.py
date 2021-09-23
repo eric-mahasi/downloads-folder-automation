@@ -34,15 +34,15 @@ for file in downloads_path.iterdir():
         if extension in program_types:
             move_file(programs_path)
         elif extension in compressed_types:
-            shutil.move(file, compressed_path)
+            move_file(compressed_path)
         elif extension in doc_types:
-            shutil.move(file, documents_path)
+            move_file(documents_path)
         elif extension in music_types:
-            shutil.move(file, music_path)
+            move_file(music_path)
         elif extension in video_types:
-            shutil.move(file, video_path)
+            move_file(video_path)
         elif extension in picture_types:
-            shutil.move(file, pictures_path)
+            move_file(pictures_path)
         else:
-            shutil.move(file, other_path)
+            move_file(other_path)
 
