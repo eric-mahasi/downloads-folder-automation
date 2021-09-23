@@ -16,7 +16,7 @@ program_types = ('.exe', '.pkg', '.dmg', '.msi')
 compressed_types = ('.zip', '.rar')
 doc_types = ('.doc', '.docx', '.txt', '.pdf', '.xls', '.ppt', '.xlsx', '.pptx')
 music_types = ('.mp3', '.wav')
-video_types = ('.mp4', '.gif',)
+video_types = ('.mp4', '.mkv',)
 picture_types = ('.jpg', '.jpeg', '.png', '.svg', '.gif', '.tif', '.tiff')
 
 
