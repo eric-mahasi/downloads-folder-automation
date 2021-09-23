@@ -20,6 +20,18 @@ picture_types = ('.jpg', '.jpeg', '.png', '.svg', '.gif', '.tif', '.tiff')
 for file in downloads_path.iterdir():
     if file.is_file():
         extension = file.suffix
-        if extension == '.exe':
+        if extension in program_types:
             shutil.move(file, programs_path)
+        elif extension in compressed_types:
+            shutil.move(file, compressed_path)
+        elif extension in doc_types:
+            shutil.move(file, documents_path)
+        elif extension in music_types:
+            shutil.move(file, music_path)
+        elif extension in video_types:
+            shutil.move(file, video_path)
+        elif extension in picture_types:
+            shutil.move(file, pictures_path)
+        else:
+            shutil.move(file, other_path)
 
