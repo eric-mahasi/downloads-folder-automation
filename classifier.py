@@ -1,3 +1,4 @@
+import os.path
 import pathlib
 import shutil
 from pathlib import Path
@@ -21,7 +22,11 @@ for file in downloads_path.iterdir():
     if file.is_file():
         extension = file.suffix
         if extension in program_types:
-            shutil.move(file, programs_path)
+            if os.path.isdir(programs_path):
+                shutil.move(file, programs_path)
+            else:
+                os.mkdir(programs_path)
+                shutil.move(file, programs_path)
         elif extension in compressed_types:
             shutil.move(file, compressed_path)
         elif extension in doc_types:
