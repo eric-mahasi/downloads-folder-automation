@@ -12,7 +12,7 @@ video_path = Path("/Users/ericm/Downloads/Video")
 pictures_path = Path("/Users/ericm/Downloads/Pictures")
 other_path = Path("/Users/ericm/Downloads/Other")
 
-program_types = ('.exe', '.pkg', '.dmg')
+program_types = ('.exe', '.pkg', '.dmg', '.msi')
 compressed_types = ('.zip', '.rar')
 doc_types = ('.doc', '.docx', '.txt', '.pdf', '.xls', '.ppt', '.xlsx', '.pptx')
 music_types = ('.mp3', '.wav')
