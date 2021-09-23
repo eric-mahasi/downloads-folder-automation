@@ -1,5 +1,4 @@
 import os.path
-import pathlib
 import shutil
 from pathlib import Path
 
@@ -45,4 +44,3 @@ for file in downloads_path.iterdir():
             move_file(pictures_path)
         else:
             move_file(other_path)
-
