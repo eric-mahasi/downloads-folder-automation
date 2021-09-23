@@ -11,6 +11,12 @@ video_path = Path("/Users/ericm/Downloads/Video")
 pictures_path = Path("/Users/ericm/Downloads/Pictures")
 other_path = Path("/Users/ericm/Downloads/Other")
 file_type_variation_list = ['.exe', '.ini', '.zip', '.msi', '.iso', '.torrent']
+program_types = ('.exe', '.pkg', '.dmg')
+compressed_types = ('.zip', '.rar')
+doc_types = ('.doc', '.docx', '.txt', '.pdf', '.xls', '.ppt', '.xlsx', '.pptx')
+music_types = ('.mp3', '.wav')
+video_types = ('.mp4', '.gif',)
+picture_types = ('.jpg', '.jpeg', '.png', '.svg', '.gif', '.tif', '.tiff')
 for file in downloads_path.iterdir():
     if file.is_file():
         extension = file.suffix
