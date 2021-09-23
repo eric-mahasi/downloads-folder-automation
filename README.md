@@ -1,2 +1,3 @@
 # downloads-folder-automation
-Automating the process of sorting files in my downloads folder by file type.
+Automating the process of sorting files in a user's downloads folder on Windows by file type.
+
