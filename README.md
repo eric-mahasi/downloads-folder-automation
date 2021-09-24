@@ -19,9 +19,9 @@ $ python downloads_folder_sorter.py
 ## Configuration
 From location of file, edit config.ini.
 ```
-To add file extension add to tuple
+To add file extension append it to desired categories tuple
 
-$ EXA ('.exe', '.pkg', '.dmg', '.msi', 'FILE EXTENTION')
+$ EXA PROGRAMS = ('.exe', '.pkg', '.dmg', '.msi', 'FILE EXTENTION')
 ```
 To run the script:
 ```
