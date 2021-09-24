@@ -27,10 +27,10 @@ def main():
 def sort_folder(folder: pathlib.Path):
     """Iterates through the files in the folder"""
     for file in folder.iterdir():
-        sort_file(file)
+        _sort_file(file)
 
 
-def sort_file(file: pathlib.Path):
+def _sort_file(file: pathlib.Path):
     """moves an individual file into the correct folder"""
     if file.is_file():
         for category in CATEGORIES:
