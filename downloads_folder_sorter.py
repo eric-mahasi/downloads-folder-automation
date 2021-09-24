@@ -30,11 +30,10 @@ def move_file(file, destination):
     destination : Path
         the path to the destination folder
     """
-    if os.path.isdir(destination):
-        shutil.move(file, destination)
-    else:
-        os.mkdir(destination)
-        shutil.move(file, destination)
+
+    if not destination.exists():
+        destination.mkdir(parents=True, exist_ok=True)
+    shutil.move(file, destination)
 
 
 def sort_folder():
