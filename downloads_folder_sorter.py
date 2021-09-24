@@ -64,18 +64,20 @@ def sort_folder():
     for file in downloads_path.iterdir():
         if file.is_file():
             extension = file.suffix
-            """Added flexable file sorting """
-            extension_type = ['program_types', 'compressed_types', 'doc_types',
-                              'music_types', 'video_types', 'picture_types']
-            file_paths = ['programs_path', 'compressed_path',
-                          'documents_path', 'music_path', 'video_types', 'picture_types']
-            x = 0
-            while x < len(extension):
-                if extension in extension_type[x]:
-                    move_file(file, file_paths[x])
-                else:
-                    move_file(file, other_path)
-                x += 1
+            if extension in program_types:
+                move_file(file, programs_path)
+            elif extension in compressed_types:
+                move_file(file, compressed_path)
+            elif extension in doc_types:
+                move_file(file, documents_path)
+            elif extension in music_types:
+                move_file(file, music_path)
+            elif extension in video_types:
+                move_file(file, video_path)
+            elif extension in picture_types:
+                move_file(file, pictures_path)
+            else:
+                move_file(file, other_path)
 
 
 if __name__ == '__main__':
