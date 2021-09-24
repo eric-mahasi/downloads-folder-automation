@@ -75,6 +75,7 @@ def sort_folder():
                     move_file(file, file_paths[x])
                 else:
                     move_file(file, other_path)
+                x += 1
 
 
 if __name__ == '__main__':
