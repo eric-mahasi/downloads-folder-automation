@@ -21,20 +21,20 @@ with open('config.json', encoding='utf-8') as f:
     CATEGORIES = json.load(f)
 
 
-def move_file(file, dest_path):
+def move_file(file, destination):
     """Checks if the destination folder exists, creates it if it doesn't, then moves a file into it
     Parameters
     ----------
     file : Path
         the path to a file
-    dest_path : Path
+    destination : Path
         the path to the destination folder
     """
-    if os.path.isdir(dest_path):
-        shutil.move(file, dest_path)
+    if os.path.isdir(destination):
+        shutil.move(file, destination)
     else:
-        os.mkdir(dest_path)
-        shutil.move(file, dest_path)
+        os.mkdir(destination)
+        shutil.move(file, destination)
 
 
 def sort_folder():
