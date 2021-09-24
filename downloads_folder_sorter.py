@@ -9,7 +9,6 @@ This file contains the following functions:
     * sort_folder - iterates through the files in the folder
 """
 
-from ast import literal_eval
 import os.path
 import shutil
 import configparser
