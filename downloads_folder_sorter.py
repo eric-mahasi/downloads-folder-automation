@@ -9,7 +9,7 @@ This file contains the following functions:
     * sort_folder - iterates through the files in the folder
 """
 
-import os.path
+import os
 import shutil
 from pathlib import Path
 import json
