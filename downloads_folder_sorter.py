@@ -14,8 +14,6 @@ import shutil
 from pathlib import Path
 import json
 
-user = os.getenv('USERNAME')
-downloads_path = Path("/Users/{}/Downloads".format(user))
 
 with open('config.json', encoding='utf-8') as f:
     CATEGORIES = json.load(f)
@@ -36,9 +34,14 @@ def move_file(file, destination):
     shutil.move(file, destination)
 
 
-def sort_folder():
-    """Iterates through the files in the folder"""
-    for file in downloads_path.iterdir():
+def sort_folder(folder_path):
+    """Iterates through the files in the folder, sorting them into sub-folders by extension.
+    Parameters
+        ----------
+        folder_path : Path
+            the path to the folder to be organized
+    """
+    for file in folder_path.iterdir():
         if file.is_file():
             for category in CATEGORIES:
                 if file.suffix in category['extensions']:
@@ -47,4 +50,6 @@ def sort_folder():
 
 
 if __name__ == '__main__':
-    sort_folder()
+    user = os.getenv('USERNAME')
+    downloads_path = Path("/Users/{}/Downloads".format(user))
+    sort_folder(downloads_path)
