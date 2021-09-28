@@ -28,10 +28,12 @@ def move_file(file, destination):
     destination : Path
         the path to the destination folder
     """
-
-    if not destination.exists():
-        destination.mkdir(parents=True, exist_ok=True)
-    shutil.move(file, destination)
+    try:
+        if not destination.exists():
+            destination.mkdir(parents=True, exist_ok=True)
+        shutil.move(file, destination)
+    except shutil.Error as e:
+        print(e)
 
 
 def sort_folder(folder_path):
