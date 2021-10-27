@@ -14,10 +14,6 @@ from pathlib import Path
 import json
 
 
-with open('config.json', encoding='utf-8') as f:
-    CATEGORIES = json.load(f)
-
-
 def move_file(file, destination):
     """Checks if the destination folder exists, creates it if it doesn't, then moves a file into it
     Parameters
@@ -42,14 +38,18 @@ def sort_folder(folder_path):
         folder_path : Path
             the path to the folder to be organized
     """
+    with open('config.json', encoding='utf-8') as f:
+        categories = json.load(f)
+
+    extensions_map = {}
+    for category in categories:
+        folder_name = category['name']
+        for extension in category['extensions']:
+            extensions_map[extension] = folder_name
+
     for file in folder_path.iterdir():
         if file.is_file() and not file.name.startswith('.'):
-            destination = 'Other'
-            for category in CATEGORIES:
-                if file.suffix in category['extensions']:
-                    destination = category['name']
-                    break
-
+            destination = extensions_map.get(file.suffix, 'Other')
             move_file(file, file.parent.joinpath(destination))
 
 
