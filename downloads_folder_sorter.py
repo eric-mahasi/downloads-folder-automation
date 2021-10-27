@@ -52,6 +52,7 @@ def sort_folder(folder_path):
 
 
 if __name__ == '__main__':
-    user = os.getenv('USERNAME')
-    downloads_path = Path("/Users/{}/Downloads".format(user))
+    home_directory = str(Path.home())
+    downloads_path = Path(f'{home_directory}/Downloads')
+
     sort_folder(downloads_path)
