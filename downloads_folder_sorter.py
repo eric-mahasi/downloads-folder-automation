@@ -9,7 +9,6 @@ This file contains the following functions:
     * sort_folder - iterates through the files in the folder
 """
 
-import os
 import shutil
 from pathlib import Path
 import json
@@ -44,11 +43,14 @@ def sort_folder(folder_path):
             the path to the folder to be organized
     """
     for file in folder_path.iterdir():
-        if file.is_file():
+        if file.is_file() and not file.name.startswith('.'):
+            destination = 'Other'
             for category in CATEGORIES:
                 if file.suffix in category['extensions']:
-                    destination = file.parent.joinpath(category['name'])
-                    move_file(file, destination)
+                    destination = category['name']
+                    break
+
+            move_file(file, file.parent.joinpath(destination))
 
 
 if __name__ == '__main__':
