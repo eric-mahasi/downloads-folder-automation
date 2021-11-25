@@ -9,14 +9,9 @@ This file contains the following functions:
     * sort_folder - iterates through the files in the folder
 """
 
-import os
 import shutil
 from pathlib import Path
 import json
-
-
-with open('config.json', encoding='utf-8') as f:
-    CATEGORIES = json.load(f)
 
 
 def move_file(file, destination):
@@ -43,15 +38,23 @@ def sort_folder(folder_path):
         folder_path : Path
             the path to the folder to be organized
     """
+    with open('config.json', encoding='utf-8') as f:
+        categories = json.load(f)
+
+    extensions_map = {}
+    for category in categories:
+        folder_name = category['name']
+        for extension in category['extensions']:
+            extensions_map[extension] = folder_name
+
     for file in folder_path.iterdir():
-        if file.is_file():
-            for category in CATEGORIES:
-                if file.suffix in category['extensions']:
-                    destination = file.parent.joinpath(category['name'])
-                    move_file(file, destination)
+        if file.is_file() and not file.name.startswith('.'):
+            destination = extensions_map.get(file.suffix, 'Other')
+            move_file(file, file.parent.joinpath(destination))
 
 
 if __name__ == '__main__':
-    user = os.getenv('USERNAME')
-    downloads_path = Path("/Users/{}/Downloads".format(user))
+    home_directory = str(Path.home())
+    downloads_path = Path(f'{home_directory}/Downloads')
+
     sort_folder(downloads_path)
