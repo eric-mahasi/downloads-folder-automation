@@ -34,9 +34,9 @@ def move_file(file, destination):
 def sort_folder(folder_path):
     """Iterates through the files in the folder, sorting them into sub-folders by extension.
     Parameters
-        ----------
-        folder_path : Path
-            the path to the folder to be organized
+    ----------
+    folder_path : Path
+        the path to the folder to be organized
     """
     with open('config.json', encoding='utf-8') as f:
         categories = json.load(f)
