@@ -1,57 +1,49 @@
 [
   {
-    "name": "Programs",
-    "extensions": [
-      ".exe",
-      ".pkg",
-      ".dmg",
-      ".msi"
-    ]
-  },
-  {
     "name": "Compressed",
-    "extensions": [
-      ".zip",
-      ".rar"
-    ]
+    "extensions": [".7z", ".rar", ".zip"]
   },
   {
     "name": "Documents",
     "extensions": [
+      ".csv",
       ".doc",
       ".docx",
-      ".txt",
       ".pdf",
-      ".xls",
       ".ppt",
-      ".xlsx",
-      ".pptx"
+      ".pptx",
+      ".pub",
+      ".txt",
+      ".xls",
+      ".xls",
+      ".xlsm",
+      ".xlsx"
     ]
   },
   {
     "name": "Music",
-    "extensions": [
-      ".mp3",
-      ".wav"
-    ]
+    "extensions": [".mp3", ".wav"]
+  },
+  {
+    "name": "Pictures",
+    "extensions": [".gif", ".jpeg", ".jpg", ".png", ".svg", ".tif", ".tiff"]
+  },
+  {
+    "name": "Programs",
+    "extensions": [".dmg", ".exe", ".msi", ".pkg", ".apk"]
   },
   {
     "name": "Videos",
     "extensions": [
+      ".avi",
+      ".flv",
+      ".mkv",
+      ".mov",
       ".mp4",
-      ".mkv"
-    ]
-  },
-  {
-    "name": "Pictures",
-    "extensions": [
-      ".jpg",
-      ".jpeg",
-      ".png",
-      ".svg",
-      ".gif",
-      ".tif",
-      ".tiff"
+      ".mpeg",
+      ".mpg",
+      ".webm",
+      ".wmv"
     ]
   }
 ]
