@@ -47,7 +47,7 @@ def sort_folder_by_categories():
         if file.is_file() and not file.name.startswith("."):
             destination = extensions_map.get(file.suffix, "Other")
             move_file(file, file.parent.joinpath(destination))
-    messagebox.showinfo("File Sort", "All files were sorted")
+    messagebox.showinfo("Folder Sorter", "All files were sorted in their subfolders")
 
 
 def sort_folder_by_extensions():
@@ -61,7 +61,7 @@ def sort_folder_by_extensions():
         if not os.path.exists(f"{folder_path}/{ext}"):
             os.makedirs(f"{folder_path}/{ext}")
         shutil.move(f"{folder_path}/{file_}", f"{folder_path}/{ext}/{file_}")
-    messagebox.showinfo("File Sort", "All files were sorted")
+    messagebox.showinfo("Folder Sorter", "All files were sorted in their subfolders")
 
 
 def select_folder():
