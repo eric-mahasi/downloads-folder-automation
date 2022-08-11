@@ -1,7 +1,26 @@
 [
   {
+    "name": "Codes",
+    "extensions": [
+      ".c",
+      ".cpp",
+      ".cs",
+      ".css",
+      ".html",
+      ".java",
+      ".js",
+      ".json",
+      ".jsx",
+      ".php",
+      ".py",
+      ".ts",
+      ".tsx",
+      ".yaml"
+    ]
+  },
+  {
     "name": "Compressed",
-    "extensions": [".7z", ".rar", ".zip"]
+    "extensions": [".zip", ".7-zip", ".7z", ".rar", ".tar"]
   },
   {
     "name": "Documents",
@@ -9,12 +28,14 @@
       ".csv",
       ".doc",
       ".docx",
+      ".md",
+      ".ods",
       ".pdf",
       ".ppt",
       ".pptx",
       ".pub",
+      ".rtf",
       ".txt",
-      ".xls",
       ".xls",
       ".xlsm",
       ".xlsx"
@@ -22,15 +43,29 @@
   },
   {
     "name": "Music",
-    "extensions": [".mp3", ".wav"]
+    "extensions": [".aac", ".m4a", ".mp3", ".wav"]
   },
   {
     "name": "Pictures",
-    "extensions": [".gif", ".jpeg", ".jpg", ".png", ".svg", ".tif", ".tiff"]
+    "extensions": [
+      ".bmp",
+      ".gif",
+      ".ico",
+      ".indd",
+      ".jpeg",
+      ".jpg",
+      ".png",
+      ".psd",
+      ".raw",
+      ".svg",
+      ".tif",
+      ".tiff",
+      ".webp"
+    ]
   },
   {
-    "name": "Programs",
-    "extensions": [".dmg", ".exe", ".msi", ".pkg", ".apk"]
+    "name": "Applications",
+    "extensions": [".apk", ".dmg", ".exe", ".lnk", ".msi", ".pkg"]
   },
   {
     "name": "Videos",
@@ -42,6 +77,8 @@
       ".mp4",
       ".mpeg",
       ".mpg",
+      ".ogg",
+      ".wav",
       ".webm",
       ".wmv"
     ]

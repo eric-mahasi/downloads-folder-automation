@@ -1,8 +1,8 @@
 # downloads-folder-automation
 
-Automating the process of sorting files in a user's downloads folder on Windows by file type.
+Automating the process of sorting files in a user's folder on Windows by file type.
 
-This script iterates through the files in the downloads folder and moves them to their respective sub-folders. If the
+This script iterates through the files in the folder and moves them to their respective sub-folders. If the
 sub-folder does not exist, it is created then the files moved into it.
 
 ## Prerequisites
