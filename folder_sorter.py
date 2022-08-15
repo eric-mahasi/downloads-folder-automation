@@ -1,4 +1,4 @@
-"""Downloads folder sorter
+"""Folder sorter
 This script iterates through the files in a user's folder on Windows and places each file in its appropriate
 folder.
 This file contains the following functions:
