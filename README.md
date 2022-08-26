@@ -21,15 +21,15 @@ From here, you have two options:
 1. Run via the GUI, with both options and a popup with the target directory:
 
    ```
-   $ python folder_sorter.py
+   $ python folder_sorter.pyw
    ```
 
 2. Run via the command line, here you specify the method and folder to be sorted, with Download's Path as the default one (best for automation):
 
    ```
-   $ python folder_sorter.py sort_c
-   $ python folder_sorter.py sort_c "<path>"
-   $ python folder_sorter.py sort_e "<path>"
+   $ python folder_sorter.pyw sort_c
+   $ python folder_sorter.pyw sort_c "<path>"
+   $ python folder_sorter.pyw sort_e "<path>"
    ```
 
 To have the script run automatically, configure it in Windows Task Scheduler according to [this tutorial](https://datatofish.com/python-script-windows-scheduler/).
