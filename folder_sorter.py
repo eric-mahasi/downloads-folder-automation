@@ -14,13 +14,24 @@ from tkinter import Tk, Button, filedialog, messagebox, Grid
 
 
 def move_file(file, destination):
-    """Checks if the destination folder exists, creates it if it doesn't, then moves a file into it
+    """
+    Move a file to a destination folder.
+
     Parameters
     ----------
-    file : Path
-        the path to a file
-    destination : Path
-        the path to the destination folder
+    file : str
+        The file to be moved.
+    destination : str
+        The destination folder.
+
+    Returns
+    -------
+    None
+
+    Examples
+    --------
+    >>> move_file('/home/user/file.txt', '/home/user/Documents')
+
     """
     try:
         if not destination.exists():
@@ -32,7 +43,24 @@ def move_file(file, destination):
 
 
 def sort_folder_by_categories():
-    """Iterates through the files in the folder, sorting them into sub-folders by extension."""
+    """
+    Sort files in a folder by the set categories in the config file.
+
+    Parameters
+    ----------
+    folder_path : pathlib.Path
+        The path to the folder to be sorted.
+
+    Returns
+    -------
+    None
+        None.
+
+    Examples
+    --------
+    >>> sort_folder_by_categories()
+
+    """
     folder_path = select_folder()
     with open("config.json", encoding="utf-8") as f:
         categories = json.load(f)
@@ -51,6 +79,23 @@ def sort_folder_by_categories():
 
 
 def sort_folder_by_extensions():
+    """
+    Sort files in a folder by their extensions.
+
+    Parameters
+    ----------
+    folder_path : str
+        The path to the folder to be sorted.
+
+    Returns
+    -------
+    None
+
+    Examples
+    --------
+    >>> sort_folder_by_extensions()
+
+    """
     folder_path = select_folder()
     list_ = os.listdir(folder_path)
     for file_ in list_:
