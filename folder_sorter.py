@@ -1,14 +1,16 @@
 """Folder sorter
-This script iterates through the files in a user's folder on Windows and places each file in its appropriate
-folder.
-This file contains the following functions:
-    * move_file - checks if the destination folder exists, creates it if it doesn't, then moves a file into it
-    * sort_folder - iterates through the files in the folder
+This script iterates through the files in a user's folder on Windows and places each file in its appropriate folder, it can sort by categories or by extensions. There's a config file that contains the categories.
+    You can use it in two ways:
+    1. Via the command line, here you specify the method and folder to be sorted.
+        > python folder_sorter.py sort_c "<path>"
+        > python folder_sorter.py sort_e "<path>"
+    2. Via the GUI,with both options and a popup with the target directory.
 """
 
-import os
 import json
+import os
 import shutil
+import sys
 from pathlib import Path
 from tkinter import Tk, Button, filedialog, messagebox, Grid
 
@@ -44,22 +46,19 @@ def move_file(file, destination):
 
 def sort_folder_by_categories():
     """
-    Sort files in a folder by the set categories in the config file.
+    Sort files in a folder by categories set in the config file.
 
     Parameters
     ----------
-    folder_path : pathlib.Path
-        The path to the folder to be sorted.
+    None
 
     Returns
     -------
     None
-        None.
 
     Examples
     --------
     >>> sort_folder_by_categories()
-
     """
     folder_path = select_folder()
     with open("config.json", encoding="utf-8") as f:
@@ -75,7 +74,10 @@ def sort_folder_by_categories():
         if file.is_file() and not file.name.startswith("."):
             destination = extensions_map.get(file.suffix, "Other")
             move_file(file, file.parent.joinpath(destination))
-    messagebox.showinfo("Folder Sorter", "All files were sorted in their subfolders")
+    if sys.argv[1] not in ["sort_c", "sort_e"]:
+        messagebox.showinfo(
+            "Folder Sorter", "All files were sorted in their subfolders"
+        )
 
 
 def sort_folder_by_extensions():
@@ -85,7 +87,7 @@ def sort_folder_by_extensions():
     Parameters
     ----------
     folder_path : str
-        The path to the folder to be sorted.
+        The path of the folder to be sorted.
 
     Returns
     -------
@@ -94,8 +96,9 @@ def sort_folder_by_extensions():
     Examples
     --------
     >>> sort_folder_by_extensions()
-
+    Folder Sorter: All files were sorted in their subfolders
     """
+
     folder_path = select_folder()
     list_ = os.listdir(folder_path)
     for file_ in list_:
@@ -106,18 +109,76 @@ def sort_folder_by_extensions():
         if not os.path.exists(f"{folder_path}/{ext}"):
             os.makedirs(f"{folder_path}/{ext}")
         shutil.move(f"{folder_path}/{file_}", f"{folder_path}/{ext}/{file_}")
-    messagebox.showinfo("Folder Sorter", "All files were sorted in their subfolders")
+    if sys.argv[1] not in ["sort_c", "sort_e"]:
+        messagebox.showinfo(
+            "Folder Sorter", "All files were sorted in their subfolders"
+        )
 
 
 def select_folder():
-    """Opens a file dialog to select a folder."""
+    """
+    Select a folder, if is not via GUI and has not specified a folder, Downloads is the default.
+
+    Returns
+    -------
+    str
+        The path of the selected folder.
+    """
+
+    if sys.argv[1] in ["sort_c", "sort_e"]:
+        return str(sys.argv[2]) if len(sys.argv) > 2 else Path(get_download_path())
     root = Tk()
     root.withdraw()
     root.attributes("-topmost", True)
     return Path(filedialog.askdirectory())
 
 
+def get_download_path():
+    """
+    Returns the default downloads path for windows.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    str
+        The path to the downloads folder.
+
+    Examples
+    --------
+    >>> get_download_path()
+    'C:\\Users\\User\\Downloads'
+
+    """
+    import winreg
+
+    sub_key = "SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders"
+    downloads_guid = "{374DE290-123F-4565-9164-39C4925E467B}"
+    with winreg.OpenKey(winreg.HKEY_CURRENT_USER, sub_key) as key:
+        location = winreg.QueryValueEx(key, downloads_guid)[0]
+    return location
+
+
 def user_interface():
+    """
+    User interface for the sorting app.
+
+    Parameters
+    ----------
+    root : Tk
+        The root window.
+
+    Returns
+    -------
+    None
+
+    Examples
+    --------
+    >>> user_interface()
+
+    """
     root = Tk()
     root.title("Folder Sorter")
     root.geometry("250x150")
@@ -141,4 +202,9 @@ def user_interface():
 
 
 if __name__ == "__main__":
-    user_interface()
+    if sys.argv[1] == "sort_c":
+        sort_folder_by_categories()
+    elif sys.argv[1] == "sort_e":
+        sort_folder_by_extensions()
+    else:
+        user_interface()

@@ -1,9 +1,8 @@
-# downloads-folder-automation
+# folder-automation
 
 Automating the process of sorting files in a user's folder on Windows by file type.
 
-This script iterates through the files in the folder and moves them to their respective sub-folders. If the
-sub-folder does not exist, it is created then the files moved into it.
+This script iterates through the files in a user's folder on Windows and places each file in its appropriate folder, it can sort by categories or by extensions. There's a config file that contains the categories.
 
 ## Prerequisites
 
@@ -17,11 +16,21 @@ From a terminal, navigate into the project directory.
 $ cd downloads-folder-automation
 ```
 
-To run the script:
+From here, you have two options:
 
-```
-$ python downloads_folder_sorter.py
-```
+1. Run via the GUI, with both options and a popup with the target directory:
+
+   ```
+   $ python folder_sorter.py
+   ```
+
+2. Run via the command line, here you specify the method and folder to be sorted, with Download's Path as the default one (best for automation):
+
+   ```
+   $ python folder_sorter.py sort_c
+   $ python folder_sorter.py sort_c "<path>"
+   $ python folder_sorter.py sort_e "<path>"
+   ```
 
 To have the script run automatically, configure it in Windows Task Scheduler according to [this tutorial](https://datatofish.com/python-script-windows-scheduler/).
 
