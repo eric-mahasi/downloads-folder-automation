@@ -74,7 +74,7 @@ def sort_folder_by_categories():
         if file.is_file() and not file.name.startswith("."):
             destination = extensions_map.get(file.suffix, "Other")
             move_file(file, file.parent.joinpath(destination))
-    if sys.argv[1] not in ["sort_c", "sort_e"]:
+    if len(sys.argv) > 1 and sys.argv[1] not in ["sort_c", "sort_e"]:
         messagebox.showinfo(
             "Folder Sorter", "All files were sorted in their subfolders"
         )
@@ -109,7 +109,7 @@ def sort_folder_by_extensions():
         if not os.path.exists(f"{folder_path}/{ext}"):
             os.makedirs(f"{folder_path}/{ext}")
         shutil.move(f"{folder_path}/{file_}", f"{folder_path}/{ext}/{file_}")
-    if sys.argv[1] not in ["sort_c", "sort_e"]:
+    if len(sys.argv) > 1 and sys.argv[1] not in ["sort_c", "sort_e"]:
         messagebox.showinfo(
             "Folder Sorter", "All files were sorted in their subfolders"
         )
@@ -126,7 +126,7 @@ def select_folder():
     """
 
     if sys.argv[1] in ["sort_c", "sort_e"]:
-        return str(sys.argv[2]) if len(sys.argv) > 2 else Path(get_download_path())
+        return Path(sys.argv[2]) if len(sys.argv) > 2 else Path(get_download_path())
     root = Tk()
     root.withdraw()
     root.attributes("-topmost", True)
@@ -202,9 +202,9 @@ def user_interface():
 
 
 if __name__ == "__main__":
-    if sys.argv[1] == "sort_c":
+    if len(sys.argv) > 1 and sys.argv[1] == "sort_c":
         sort_folder_by_categories()
-    elif sys.argv[1] == "sort_e":
+    elif len(sys.argv) > 1 and sys.argv[1] == "sort_e":
         sort_folder_by_extensions()
     else:
         user_interface()
