@@ -22,6 +22,7 @@
   {
     "name": "Development",
     "extensions": [
+      ".ahk",
       ".c",
       ".cpp",
       ".cs",

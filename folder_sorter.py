@@ -125,7 +125,7 @@ def select_folder():
         The path of the selected folder.
     """
 
-    if sys.argv[1] in ["sort_c", "sort_e"]:
+    if len(sys.argv) > 1 and sys.argv[1] in ["sort_c", "sort_e"]:
         return Path(sys.argv[2]) if len(sys.argv) > 2 else Path(get_download_path())
     root = Tk()
     root.withdraw()
