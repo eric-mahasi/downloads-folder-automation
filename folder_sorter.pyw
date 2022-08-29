@@ -13,7 +13,7 @@ import os
 import shutil
 import sys
 from pathlib import Path
-from tkinter import Tk, Button, filedialog, messagebox, Grid
+from tkinter import Button, Grid, Label, Tk, filedialog, messagebox
 
 
 def set_global_variables():
@@ -55,13 +55,19 @@ def user_interface():
     Grid.rowconfigure(root, 0, weight=1)
     Grid.columnconfigure(root, 0, weight=1)
 
-    b1 = Button(root, text="Sort by Categories", command=sort_folder_by_categories)
-    b2 = Button(root, text="Sort by Extensions", command=sort_folder_by_extensions)
-    bl = [b1, b2]
-    for row_no, _ in enumerate(bl):
+    btn_sort_c = Button(root, text="by Categories", command=sort_folder_by_categories)
+    btn_sort_e = Button(root, text="by Extensions", command=sort_folder_by_extensions)
+    btn_sort_both = Button(root, text="Both (Categories → Extensions)", command=sort_folder_both)
+    label_information = Label(root, text="Select Sorting Method", bg="#a4a3a7")
+
+    br = [label_information, btn_sort_c, btn_sort_e, btn_sort_both]
+    for row_no, _ in enumerate(br):
         Grid.rowconfigure(root, row_no, weight=1)
-    b1.grid(row=0, column=0, sticky="nsew")
-    b2.grid(row=1, column=0, stick="nsew")
+
+    label_information.grid(row=0, column=0, sticky="nsew")
+    btn_sort_c.grid(row=1, column=0, sticky="nsew")
+    btn_sort_e.grid(row=2, column=0, sticky="nsew")
+    btn_sort_both.grid(row=3, column=0, sticky="nsew")
 
     root.mainloop()
 
@@ -209,6 +215,10 @@ def sort_folder_by_extensions():
         shutil.move(f"{folder_path}/{file_}", f"{folder_path}/{ext}/{file_}")
     if SORT_METHOD not in ["sort_c", "sort_e"]:
         show_message_box()
+
+
+def sort_folder_both():
+    print("sort_folder_both")
 
 
 if __name__ == "__main__":
