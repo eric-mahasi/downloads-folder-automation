@@ -1,57 +1,99 @@
 [
   {
-    "name": "Programs",
-    "extensions": [
-      ".exe",
-      ".pkg",
-      ".dmg",
-      ".msi"
-    ]
+    "name": "Adobe Files",
+    "extensions": [".ai", ".eps", ".ps", ".svg", ".indd", ".pdd", ".psd"]
   },
+
+  {
+    "name": "Applications",
+    "extensions": [".apk", ".dmg", ".exe", ".lnk", ".msi", ".pkg"]
+  },
+
+  {
+    "name": "Audio",
+    "extensions": [".aac", ".m4a", ".mp3", ".wav"]
+  },
+
   {
     "name": "Compressed",
+    "extensions": [".zip", ".7-zip", ".7z", ".rar", ".tar"]
+  },
+
+  {
+    "name": "Development",
     "extensions": [
-      ".zip",
-      ".rar"
+      ".ahk",
+      ".c",
+      ".cpp",
+      ".cs",
+      ".css",
+      ".html",
+      ".java",
+      ".js",
+      ".json",
+      ".jsx",
+      ".php",
+      ".py",
+      ".ts",
+      ".tsx",
+      ".xml",
+      ".yaml"
     ]
   },
+
   {
     "name": "Documents",
     "extensions": [
+      ".csv",
       ".doc",
       ".docx",
-      ".txt",
+      ".md",
+      ".ods",
       ".pdf",
-      ".xls",
       ".ppt",
-      ".xlsx",
-      ".pptx"
+      ".pptx",
+      ".pub",
+      ".rtf",
+      ".txt",
+      ".xls",
+      ".xlsm",
+      ".xlsx"
     ]
   },
+
   {
-    "name": "Music",
+    "name": "Images",
     "extensions": [
-      ".mp3",
-      ".wav"
+      ".bmp",
+      ".gif",
+      ".ico",
+      ".indd",
+      ".jpeg",
+      ".jpg",
+      ".png",
+      ".psd",
+      ".raw",
+      ".svg",
+      ".tif",
+      ".tiff",
+      ".webp"
     ]
   },
+
   {
     "name": "Videos",
     "extensions": [
+      ".avi",
+      ".flv",
+      ".mkv",
+      ".mov",
       ".mp4",
-      ".mkv"
-    ]
-  },
-  {
-    "name": "Pictures",
-    "extensions": [
-      ".jpg",
-      ".jpeg",
-      ".png",
-      ".svg",
-      ".gif",
-      ".tif",
-      ".tiff"
+      ".mpeg",
+      ".mpg",
+      ".ogg",
+      ".wav",
+      ".webm",
+      ".wmv"
     ]
   }
 ]
