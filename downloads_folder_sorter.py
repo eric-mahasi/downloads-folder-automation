@@ -52,7 +52,7 @@ def sort_folder(folder_path):
             destination = extensions_map.get(file.suffix, 'Other')
             move_file(file, file.parent.joinpath(destination))
 
-
+print("sorts the download folder")
 if __name__ == '__main__':
     home_directory = str(Path.home())
     downloads_path = Path(f'{home_directory}/Downloads')
